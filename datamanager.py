@@ -1,7 +1,7 @@
 import sqlite3
-import interfaz
+import pprint
 
-def añadir_usuario(usuario, contrasena):
+def anadir_usuario(usuario, contrasena):
     conn = sqlite3.connect("database.db")
     cursor = conn.cursor()
 
@@ -23,5 +23,16 @@ def quitar_usuario(usuario):
     cursor.close()
     conn.close()
 
+def return_listas():
+    conn = sqlite3.connect("database.db")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM users")
+    rows = cursor.fetchall()
+    return rows
 
 
+
+
+
+return_listas()
